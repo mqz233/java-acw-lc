@@ -5,50 +5,33 @@ public class LC54 {
 
     public List<Integer> spiralOrder(int[][] matrix) {
 
-        // matrix m代表行
-        int m = matrix.length;
-        // n代表列
-        int n = matrix[0].length;
-
-        List<Integer> res =  new ArrayList<Integer>();
-        // p = 0 代表行
-        // q = 0 代表列
-        // i代表行
-        // j代表列
-
-        // 1/4 i= p j=q j< n-1-q; j++
-        // 2/4 j= n-1-q; i=p i<m-1-p; i++
-        // 3/4 i= m-1-p; j=n-1-q; j>q; j--;
-        // 4/4 j=q; i=m-1-p; i>p; i--
-
-        // p++; j++;
-        //if (p>m/2) break;
-
-        int p=0;
-        int q=0;
-
-        while (true){
-
-            for (int j=q;j<n-1-q;j++){
-                res.add(matrix[p][j]);
+        int l = 0;
+        int r = matrix[0].length-1;
+        int up = 0;
+        int down = matrix.length-1;
+        List<Integer> res = new ArrayList<>();
+        while(l<=r&&up<=down){
+            for(int i=l;i<=r;i++){
+                res.add(matrix[up][i]);
             }
-            for (int i=p;i<m-1-p;i++){
-                res.add(matrix[i][n-1-q]);
+            up++;
+            for(int i=up;i<=down;i++){
+                res.add(matrix[i][r]);
             }
-            for (int j=n-1-q;j>q;j--){
-                res.add(matrix[m-1-p][j]);
+            r--;
+            if(up<=down){
+                for(int i=r;i>=l;i--){
+                    res.add(matrix[down][i]);
+                }
             }
-            for (int i=m-1-p;i>p;i--){
-                res.add(matrix[i][q]);
+            down--;
+            if(l<=r){
+                for(int i=down;i>=up;i--){
+                    res.add(matrix[i][l]);
+                }
             }
-
-            p++;
-            q++;
-
-            if (p>m/2){
-                break;
-            }
-
+         
+            l++;
         }
 
         return res;
@@ -58,9 +41,7 @@ public class LC54 {
     public static void main(String[] args) {
 
         new LC54().spiralOrder(new int[][]{
-                new int[]{1,2,3},
-                new int[]{4,5,6},
-                new int[]{7,8,9},
+                new int[]{6,9,7},
 
         });
     }
