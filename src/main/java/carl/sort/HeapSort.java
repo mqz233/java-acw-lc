@@ -64,6 +64,11 @@ public class HeapSort {
 
     }
 
+    public void sort2(int[] arr){
+        // 堆排序原理：
+        // 从size/2 15/2 = 7 第8个元素开始调整，确保根元素最大，大根堆
+    }
+
 
     public static void main(String []args){
         int []arr = {9,8,7,6,5,4,3,2,1};
