@@ -65,10 +65,43 @@ public class QuickSort {
         quickSort(arr, j+1, high);
     }
 
+    public static void quickSort1(int[] arr, int low, int high){
+
+        // 忘记终止条件
+        if (low>=high){
+            return;
+        }
+        int p = arr[low];
+        int left = low;
+        int right = high;
+        while(left<right){
+            // 判断条件带等于
+            while(left<right&&arr[right]>=p){
+                right--;
+            }
+            while (left<right&&arr[left]<=p){
+                left++;
+            }
+
+            if (left<right){
+                int tmp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = tmp;
+            }
+
+        }
+        arr[low] = arr[left];
+        arr[left] = p;
+
+        quickSort1(arr,low,left-1);
+        quickSort1(arr,right+1,high);
+
+    }
+
 
     public static void main(String[] args) {
         int[] arr = new int[]{10,7,2,4,7,62,3,4,2,1,8,9,19};
-        fnc(arr,0,arr.length-1);
+        quickSort1(arr,0,arr.length-1);
         for (int i=0;i<arr.length;i++){
             System.out.print(arr[i]);
             System.out.print(' ');
