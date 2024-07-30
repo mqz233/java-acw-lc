@@ -1,4 +1,7 @@
-package july;/**
-*@Desc：
-*/public class LC19 {
+package july;
+
+/**
+ * @Desc：
+ */
+public class LC19 {
 }
