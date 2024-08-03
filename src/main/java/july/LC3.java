@@ -1,4 +1,5 @@
 package july;
+import java.util.*;
 /*
 * 给定一个字符串 s ，请你找出其中不含有重复字符的 最长
 子串
@@ -31,17 +32,24 @@ s 由英文字母、数字、符号和空格组成
 * */
 public class LC3 {
     public int fnc(String s){
-        if(s.length() == 0 ) return 0;
-        int[] dp = new int[s.length()];
-        dp[0] = 1;
+        if(s.length() == 0) return 0;
+        HashSet<Character> set = new HashSet<>();
+        int l = 0;
+        int r = 0;
         int res = 1;
-        for(int i=1;i<s.length();i++){
-            if(dp[i] != dp[i-1]){
-                dp[i] = dp[i-1]+1;
+        while(r < s.length()){
+            char curChar = s.charAt(r);
+            if(!set.contains(curChar)){
+                set.add(curChar);
+                if(r-l+1>res) res = r-l+1;
             }else{
-                dp[i] = 1;
+                while(set.contains(curChar)){
+                    set.remove(s.charAt(l));
+                    l++;
+                }
+                set.add(curChar);
             }
-            if(dp[i]>res) res = dp[i];
+            r++;
         }
         return res;
     }
