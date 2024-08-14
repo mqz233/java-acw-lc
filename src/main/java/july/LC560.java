@@ -47,5 +47,6 @@ public class LC560 {
         for(int i=0;i<nums.length;i++){
             prefixArr[i+1] = prefixArr[i]+nums[i];
         }
+        return 0;
     }
 }
