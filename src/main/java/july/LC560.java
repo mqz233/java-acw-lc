@@ -41,11 +41,11 @@ public class LC560 {
         return res;
     }
 
-    public int subarraySum1(int[] nums, int k) {
-        int[] prefixArr = new int[nums.length+1];
-        prefixArr[0] = 0;
-        for(int i=0;i<nums.length;i++){
-            prefixArr[i+1] = prefixArr[i]+nums[i];
-        }
-    }
+//    public int subarraySum1(int[] nums, int k) {
+//        int[] prefixArr = new int[nums.length+1];
+//        prefixArr[0] = 0;
+//        for(int i=0;i<nums.length;i++){
+//            prefixArr[i+1] = prefixArr[i]+nums[i];
+//        }
+//    }
 }
