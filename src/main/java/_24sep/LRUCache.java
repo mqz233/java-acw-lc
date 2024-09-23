@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 class LRUCache {
 
+    // node需要保存key，用于从map移除元素
     static class Node{
         int key;
         int val;
@@ -61,9 +62,11 @@ class LRUCache {
 
     }
 
+    // 记得把新创建或者修改过的node重新放回map
     public void put(int key, int value) {
         if(!map.containsKey(key)){
             if(map.size() == c){
+                // 先移除出map
                 map.remove(pHead.next.key);
                 deleteNode(pHead.next);
             }
