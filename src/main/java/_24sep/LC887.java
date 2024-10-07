@@ -1,6 +1,6 @@
 package _24sep;
 
-public class lc887 {
+public class LC887 {
     public int superEggDrop1(int k, int n) {
         // 背包问题
         // k个鸡蛋 -> k个背包
@@ -56,7 +56,7 @@ public class lc887 {
 
 
     public static void main(String[] args) {
-        lc887 lc887 = new lc887();
+        LC887 lc887 = new LC887();
         lc887.superEggDrop1(5,6);
     }
 }
