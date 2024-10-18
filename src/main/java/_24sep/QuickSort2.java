@@ -20,7 +20,7 @@ public class QuickSort2 {
         int l1 = l;
         int r1 = r;
         while(l1<r1){
-            while(l1<r1 && nums[r1]>=num){
+            while(l1<r1 && nums[r1]>num){
                 r1--;
             }
             if(l1>=r1){
